@@ -1,0 +1,72 @@
+# Dependencies
+/node_modules/
+/.pnp
+.pnp.*
+# Keep authored Yarn tooling if the project adopts Yarn.
+/.yarn/*
+!/.yarn/patches/
+!/.yarn/plugins/
+!/.yarn/releases/
+!/.yarn/versions/
+
+# Generated builds and framework state
+/dist/
+/.next/
+/.vinext/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Test output
+/coverage/
+
+# Package-manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local environment and keys
+.env*
+.dev.vars*
+*.pem
+
+# Checkout-local tool state
+/.wrangler/
+/.sites-runtime/
+
+# Workspace scaffolding and publication archives
+/.agents/
+/.codex/
+/outputs/
+/work/
+
+# OS metadata
+.DS_Store
+
+ACESSO-ADMIN.local.txt
+
+# Deployment-local data and legacy Cloudflare scaffold
+.vercel/
+.vercel-env-*.tmp
+.deploy-*.local.*
+!/.env.example
+/worker/
+/drizzle/
+/examples/
+/components/
+/hooks/
+/vendor/
+/.openai/
+/cloudflare-env.d.ts
+/vite.config.ts
+/drizzle.config.ts
+/components.json
+/db/index.ts
+/db/schema.ts
+/app/chatgpt-auth.ts
+/lib/connector*
+/lib/utils.ts
+/scripts/*
+!/scripts/migrate.mjs
+.vercel

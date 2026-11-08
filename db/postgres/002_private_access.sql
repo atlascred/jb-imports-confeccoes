@@ -1,0 +1,19 @@
+REVOKE ALL ON ALL TABLES IN SCHEMA jb_store FROM PUBLIC;
+DO $$
+DECLARE role_name text;
+BEGIN
+  FOREACH role_name IN ARRAY ARRAY['anon','authenticated'] LOOP
+    IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname=role_name) THEN
+      EXECUTE format('REVOKE ALL ON SCHEMA jb_store FROM %I',role_name);
+      EXECUTE format('REVOKE ALL ON ALL TABLES IN SCHEMA jb_store FROM %I',role_name);
+    END IF;
+  END LOOP;
+END $$;
+ALTER TABLE jb_store.products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.users ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.sessions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.settings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.coupons ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.attempts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE jb_store.product_images ENABLE ROW LEVEL SECURITY;
